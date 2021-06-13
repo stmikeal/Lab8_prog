@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.s311765</groupId>
+    <artifactId>Lab5</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    
+    <distributionManagement>
+            <repository>
+            <id>ssh-repository</id>
+            <url>scpexe://repository.mycompany.com/repository</url>
+        </repository>
+    </distributionManagement>
+ 
+    <build>
+        <extensions>
+            <!-- Enabling the use of SSH -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+        </extensions>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                  <archive>
+                    <manifest>
+                      <mainClass>window.Console</mainClass>
+                    </manifest>
+                  </archive>
+                </configuration>
+            </plugin>
+            <plugin>          
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>ftp</id>
+                        <phase>install</phase>
+                        <configuration>
+                            <tasks>
+                                <scp todir="s311765@helios.se.ifmo.ru:/home/s311765/lab5_prog"
+                                    sftp="true" port="2222" trust="true" password="${ftp.password}"
+                                    failonerror="false" verbose="true" passphrase="">
+                                    <fileset dir="${project.build.directory}">
+                                        <include name="*.jar" />
+                                    </fileset>
+                                </scp>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant-jsch</artifactId>
+                        <version>1.9.4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+    
+        <profiles>
+            <profile>
+                <id>deploy-artifact1</id>
+                <build>
+                    <plugins>
+                        <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-dependency-plugin</artifactId>
+                          <executions>
+                            <execution>
+                              <id>copy-dependency</id>
+                              <phase>prepare-package</phase>
+                              <goals>
+                                <goal>copy</goal>
+                              </goals>
+                              <configuration>
+                                <artifactItems>
+                                  <artifactItem>
+                                    <groupId>name.seller.rich</groupId>
+                                    <artifactId>artifact1</artifactId>
+                                    <version>1.0.0</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                  </artifactItem>
+                                </artifactItems>
+                                <outputDirectory>${project.build.directory}/deploy-staging</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                              </configuration>
+                            </execution>
+                          </executions>
+                        </plugin>
+                        <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-antrun-plugin</artifactId>
+                          <executions>
+                            <execution>
+                              <id>ftp</id>
+                              <phase>install</phase>
+                              <configuration>
+                                <tasks>
+                                  <ftp action="send" 
+                                      server="${ftp.host}" remotedir="${ftp.remotedir}" 
+                                      userid="${ftp.userid}" password="${ftp.password}" 
+                                      depends="${ftp.depends}" verbose="${ftp.verbose}">
+                                    <fileset dir="${project.build.directory}" includes="deploy-staging/"/>
+                                  </ftp>
+                                </tasks>
+                              </configuration>
+                              <goals>
+                                <goal>run</goal>
+                              </goals>
+                            </execution>
+                          </executions>
+                        </plugin>
+                    </plugins>
+                </build>
+                <properties>
+                    <!--if the properties differ between targets, qualify them with the artifact name-->
+                    <ftp.host>helios.se.ifmo.ru</ftp.host>
+                    <ftp.remotedir>/home/s311765/lab5_prog</ftp.remotedir>
+                    <ftp.userid>s311765</ftp.userid>
+                    <ftp.password>thq611</ftp.password>
+                    <ftp.depends>yes</ftp.depends>
+                    <ftp.verbose>no</ftp.verbose>          
+                </properties>
+            </profile>
+        </profiles>
+</project>

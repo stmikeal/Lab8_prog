@@ -1,11 +1,10 @@
 package client;
-
+import javafx.application.Application;
 import tools.*;
 import command.Command;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javafx.application.Application;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.NoSuchElementException;
@@ -17,7 +16,7 @@ import java.util.logging.Level;
  * Реализует управление консолью, хранит все глобальные данные.
  * @author Mike Stepanov P3130
  */
-public class Client {
+public class Client extends Application{
     
     private Socket clientSocket;
     private ObjectInputStream inStream;

@@ -25,7 +25,12 @@ public class CommandAdd extends Command{
      */
     
     private Worker worker;
-    
+
+    public CommandAdd(Worker worker) {
+        this.worker = worker;
+        this.ready = true;
+    }
+
     public CommandAdd(String ... args){
         try {
             this.worker = ReadWorker.read(System.in);

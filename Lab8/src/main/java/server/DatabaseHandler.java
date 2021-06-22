@@ -15,14 +15,16 @@ public class DatabaseHandler {
     private final String password;
     private Connection connection;
     private static final String ADD_USER_REQUEST = "INSERT INTO USERS (login, password) VALUES (?, ?)";
-    private static final String REMOVE_WORKER_REQUEST = "DELETE FROM WORKER WHERE name = ? AND x = ? AND y = ? AND salary = ? AND position = ? AND status = ? AND personal_data = ? AND country = ? AND eye = ? AND hair = ? AND height = ? AND owner = ? AND date_creation = ? AND date_start = ?";
+    private static final String REMOVE_WORKER_REQUEST = "DELETE FROM WORKER WHERE id = ? AND owner = ?";
+    private static final String ADD_NEW_WORKER_REQUEST_FORCE = "INSERT INTO WORKER (name, x, y, salary, position, status, personal_data, country, eye, hair, height, owner, date_creation, date_start, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String ADD_NEW_WORKER_REQUEST = "INSERT INTO WORKER (name, x, y, salary, position, status, personal_data, country, eye, hair, height, owner, date_creation, date_start) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String CHECK_USER_REQUEST = "SELECT * FROM USERS WHERE login = ?";
-    private static final String WORKER_REQUEST = "SELECT * FROM WORKER";
+    private static final String WORKER_REQUEST = "SELECT * FROM WORKER ORDER BY id";
     private static final String LOGIN_USER_REQUEST = "SELECT * FROM USERS WHERE login = ? AND password = ?";
-    private static final String FIRST_WORKER_REQUEST = "SELECT MIN(id) FROM WORKER WHERE owner = ? AND password = ?";
+    private static final String FIRST_WORKER_REQUEST = "SELECT MIN(id) FROM WORKER WHERE owner = ?";
     private static final String CLEAR_REQUEST = "DELETE FROM WORKER WHERE owner = ?";
     private static final String FLOOR_REQUEST = "SELECT * FROM WORKER WHERE id = ? AND owner = ?";
+    private static final String FIND_REQUEST = "SELECT * FROM WORKER WHERE id = ?";
 
     public DatabaseHandler(String URL, String username, String password) {
         this.URL = URL;
@@ -55,9 +57,23 @@ public class DatabaseHandler {
         return true;
     }
 
-    public void add(Worker worker) throws SQLException {
-        PreparedStatement saveStatement = connection.prepareStatement(ADD_NEW_WORKER_REQUEST);
-        setWorker(saveStatement, worker);
+    public boolean findId(Integer id) throws SQLException{
+        PreparedStatement findStatement = connection.prepareStatement(FIND_REQUEST);
+        findStatement.setInt(1, id);
+        ResultSet result = findStatement.executeQuery();
+        return result.next();
+    }
+
+    public void add(Worker worker, boolean flag) throws SQLException {
+        PreparedStatement saveStatement;
+        if (flag) {
+            saveStatement = connection.prepareStatement(ADD_NEW_WORKER_REQUEST_FORCE);
+            setWorker(saveStatement, worker);
+            saveStatement.setInt(15, worker.getId());
+        } else {
+            saveStatement = connection.prepareStatement(ADD_NEW_WORKER_REQUEST);
+            setWorker(saveStatement, worker);
+        }
         saveStatement.executeUpdate();
         saveStatement.close();
     }
@@ -132,13 +148,16 @@ public class DatabaseHandler {
         }
         Worker worker = new Worker(name, coordinates, salary, dateStart, position, status, person);
         worker.setOwner(owner);
+        try {
+            worker.setId(result.getInt(1));
+        } catch(NumberFormatException e) {}
         return worker;
     }
 
     public boolean isEmpty() throws SQLException{
         PreparedStatement joinStatement = connection.prepareStatement(WORKER_REQUEST);
         ResultSet result = joinStatement.executeQuery();
-        return result.next();
+        return !result.next();
     }
 
     public void clear(String username) throws SQLException{
@@ -157,36 +176,38 @@ public class DatabaseHandler {
         return count;
     }
 
-    public void remove(Worker worker) throws SQLException{
+    public void remove(Integer id, String username) throws SQLException{
         PreparedStatement removeStatement = connection.prepareStatement(REMOVE_WORKER_REQUEST);
-        setWorker(removeStatement, worker);
+        removeStatement.setInt(1, id);
+        removeStatement.setString(2, username);
         removeStatement.executeUpdate();
     }
 
-    public Worker first() throws SQLException{
-            PreparedStatement joinStatement = connection.prepareStatement(FIRST_WORKER_REQUEST);
-            ResultSet result = joinStatement.executeQuery();
-            if (result.next()) {
-                return getWorker(result);
-            } else {
-                return new Worker(-2147483648);
-            }
+    public Worker first(String username) throws SQLException{
+        PreparedStatement joinStatement = connection.prepareStatement(FIRST_WORKER_REQUEST);
+        joinStatement.setString(1, username);
+        ResultSet result = joinStatement.executeQuery();
+        if (result.next()) {
+            return new Worker(result.getInt(1));
+        } else {
+            return new Worker(-2147483648);
+        }
     }
 
-    public Stream<Worker> stream() throws SQLException{
-        TreeSet<Worker> collection = new TreeSet<>(new Comparator<Worker>() {
-            @Override
-            public int compare(Worker o1, Worker o2) {
-                return (o1.getId()>o2.getId()) ? 1 : -1;
-            }
-        });
+    public TreeSet<Worker> getCollection() throws SQLException {
+        TreeSet<Worker> collection = new TreeSet<>();
         int count = 0;
         PreparedStatement table = connection.prepareStatement(WORKER_REQUEST);
         ResultSet result = table.executeQuery();
-        while (result.next()&&count < 100) {
-            collection.add(getWorker(result));
+        while (result.next()&&count++ < 100) {
+            Worker worker = getWorker(result);
+            collection.add(worker);
         }
-        return collection.stream();
+        return collection;
+    }
+
+    public Stream<Worker> stream() throws SQLException{
+        return getCollection().stream();
     }
     public Worker floor(Worker worker) throws SQLException{
         PreparedStatement floorStatement = connection.prepareStatement(FLOOR_REQUEST);

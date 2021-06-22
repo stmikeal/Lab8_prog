@@ -24,7 +24,16 @@ public class CommandRemove extends Command{
     
     private int id;
     private Worker compared = null; 
-    
+
+    public CommandRemove(Integer id) {
+        ready = true;
+        try {
+            this.id = id;
+        } catch(NumberFormatException e) {
+            ready = false;
+        }
+    }
+
     public CommandRemove(String ... args) {
         ready = true;
         try {
@@ -37,19 +46,11 @@ public class CommandRemove extends Command{
     @Override
     public Speaker event(DataManager collection) {
         try {
-            collection.stream().filter(worker -> worker.getId() == id).forEach(worker -> compared = worker);
-            if (compared != null) {
-                compared.setOwner(username);
-                collection.remove(compared);
-                speaker = new Speaker("Элемент удачно удален.");
-                speaker.success();
-            } else {
-                speaker = new Speaker("Элемент не найден.");
-                speaker.error();
-            }
+            collection.remove(id, username);
+            speaker = new Speaker("Элемент удачно удален.");
             return speaker;
         } catch (SQLException e) {
-            speaker = new Speaker("База данных сейчас недоступна.");
+            speaker = new Speaker("Элемент не был удален");
             speaker.error();
             return speaker;
         }

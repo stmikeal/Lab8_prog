@@ -1,41 +1,44 @@
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/CommandParser.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandPrint.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandHelp.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/exception/EnvException.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Position.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandExit.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/Command.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/Encoder.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandExecute.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/Speaker.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/ClientLogger.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandFilterContains.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/server/DatabaseHandler.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandLogin.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Color.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/Invoker.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandShow.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandRegister.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandUpdate.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/ReadWorker.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/client/Client.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/server/SocketAdapter.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Worker.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/server/Server.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandAdd.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandRemove.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/server/DataManager.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Coordinates.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandInfo.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/FileReader.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandFilterStatus.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandAddIfMin.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandClear.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/command/CommandRemoveLower.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/server/Executor.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Person.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/EnvReader.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/LocalDateAdapter.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/tools/ServerLogger.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Country.java
-/home/mike/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/data/programm/Lab8/Lab8/src/main/java/element/Status.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandFilterContains.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\EnvReader.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandExit.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandAdd.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandAddIfMin.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\controllers\LoginSceneController.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\Command.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandPrint.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Country.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandHelp.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandRemove.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\Encoder.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\Speaker.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandUpdate.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\server\SocketAdapter.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\LocalDateAdapter.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandFilterStatus.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Color.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Coordinates.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\controllers\AddSceneController.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Status.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\server\DataManager.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandClear.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Person.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\FileReader.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandExecute.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\server\DatabaseHandler.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\server\Executor.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\client\Client.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandRegister.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\server\Server.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\ServerLogger.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\ClientLogger.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandShow.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\ReadWorker.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Worker.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\element\Position.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandLogin.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\controllers\WorkSceneController.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandInfo.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\CommandParser.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\command\CommandRemoveLower.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\tools\Invoker.java
+C:\Users\an-f2\OneDrive\Рабочий стол\Projects\Lab8\Lab8_prog\Lab8\src\main\java\exception\EnvException.java

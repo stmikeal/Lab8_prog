@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddSceneController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="300.0" text="New Worker">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <VBox spacing="5.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Name">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="NAME" maxWidth="300.0" minWidth="100.0" prefHeight="37.0" prefWidth="240.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="X">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="X" maxWidth="300.0" minWidth="100.0" prefHeight="37.0" prefWidth="240.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Y">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="Y" maxWidth="300.0" minWidth="100.0" prefHeight="37.0" prefWidth="240.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Salary">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="SALARY" maxWidth="300.0" minWidth="100.0" prefHeight="37.0" prefWidth="240.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Start at">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="2.0" />
+                     </padding>
+                  </Label>
+                  <DatePicker fx:id="STARTAT" prefWidth="240.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Position">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="7.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="POSITION" prefWidth="240.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Status">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="STATUS" prefWidth="240.0" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox prefWidth="100.0" style="-fx-background-color: #DDDDDD;">
+         <children>
+            <CheckBox fx:id="PD" mnemonicParsing="false" text="Personal Data">
+               <padding>
+                  <Insets left="5.0" top="5.0" />
+               </padding>
+            </CheckBox>
+            <VBox spacing="5.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Eye">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ChoiceBox fx:id="EYE" prefWidth="240.0" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Hair">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ChoiceBox fx:id="HAIR" prefWidth="240.0" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Height">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="HEIGHT" maxWidth="300.0" minWidth="100.0" prefHeight="37.0" prefWidth="240.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="70.0" text="Country">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="5.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <ChoiceBox fx:id="COUNTRY" prefWidth="240.0" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+      <AnchorPane>
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#create" prefHeight="50.0" prefWidth="200.0" text="Create" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

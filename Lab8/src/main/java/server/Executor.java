@@ -24,16 +24,13 @@ public class Executor {
         */
         try {
             if (!command.isReady()) {
-                System.out.println("fuck");
                 throw new NullPointerException();
             }
             result = command.event(Server.collection);
             if (result == null) {
-                System.out.println("result null");
                 throw new NullPointerException();
             }
         } catch(ExecutionException | NullPointerException e) {
-            e.printStackTrace();
             System.out.println("Ошибка внутри выполнителя. Нулл - ссылка.");
             result = new Speaker("Не смогли корректно исполнить команду.");
         }

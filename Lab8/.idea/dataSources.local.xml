@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-211.7142.45">
-    <data-source name="PostgreSQL - studs@pg" uuid="619c128a-7894-4b6a-942a-682d5a0e784c">
+    <data-source name="studs@pg" uuid="ab5dad12-d2a7-4f8a-9429-97c5dcc40d79">
       <database-info product="PostgreSQL" version="9.6.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="9.6.1" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -17,7 +17,7 @@
       </schema-mapping>
       <ssh-properties>
         <enabled>true</enabled>
-        <ssh-config-id>192d5150-1a3a-4c1a-a10d-a3e05a649ecb</ssh-config-id>
+        <ssh-config-id>22155cd3-aa76-4002-a79f-b2ceaa0931ed</ssh-config-id>
       </ssh-properties>
     </data-source>
   </component>

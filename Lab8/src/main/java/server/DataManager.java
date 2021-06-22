@@ -3,6 +3,7 @@ package server;
 import element.Worker;
 
 import java.sql.SQLException;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 
 public class DataManager {
@@ -10,6 +11,14 @@ public class DataManager {
 
     public  DataManager(DatabaseHandler handler) {
         this.handler = handler;
+    }
+
+    public TreeSet<Worker> getCollection() throws SQLException{
+        return handler.getCollection();
+    }
+
+    public boolean findId(Integer id) throws SQLException{
+        return handler.findId(id);
     }
 
     public void reconnect() throws SQLException {
@@ -20,19 +29,21 @@ public class DataManager {
         }
     }
 
-
-    public void add(Worker worker) throws SQLException{
+    public void add(Worker worker, boolean flag) throws SQLException {
         try{
-            handler.add(worker);
+            handler.add(worker, flag);
         } catch(SQLException e) {
             try {
                 reconnect();
-                handler.add(worker);
+                handler.add(worker, flag);
             } catch(SQLException v) {
                 System.out.println("Не удалось переподключиться к БД.");
                 throw new SQLException(e.getMessage());
             }
         }
+    }
+    public void add(Worker worker) throws SQLException{
+        add(worker, false);
     }
     public Boolean isEmpty() throws SQLException{
         try{
@@ -47,13 +58,13 @@ public class DataManager {
             }
         }
     }
-    public Worker first() throws SQLException{
+    public Worker first(String username) throws SQLException{
         try{
-            return handler.first();
+            return handler.first(username);
         } catch(SQLException e) {
             try {
                 reconnect();
-                return handler.first();
+                return handler.first(username);
             } catch(SQLException v) {
                 System.out.println("Не удалось переподключиться к БД.");
                 throw new SQLException(e.getMessage());
@@ -103,13 +114,13 @@ public class DataManager {
         }
     }
 
-    public void remove(Worker elem) throws SQLException{
+    public void remove(Integer id, String username) throws SQLException{
         try{
-            handler.remove(elem);
+            handler.remove(id, username);
         } catch(SQLException e) {
             try {
                 reconnect();
-                handler.remove(elem);
+                handler.remove(id, username);
             } catch(SQLException v) {
                 System.out.println("Не удалось переподключиться к БД.");
                 throw new SQLException(e.getMessage());

@@ -1,8 +1,12 @@
 package tools;
 
+import element.Worker;
+
 import java.util.Scanner;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.TreeSet;
+
 /**
  * Класс "разговорник".
  * Помогает красиво выводить разную информацию.
@@ -22,8 +26,16 @@ public class Speaker implements Serializable {
     private StringBuilder message;
     private String privateMessage1 = "";
     private String privateMessage2 = "";
-    
-    
+    private TreeSet<Worker> collection;
+
+    public TreeSet<Worker> getCollection() {
+        return collection;
+    }
+
+    public void setCollection(TreeSet<Worker> c) {
+        this.collection = c;
+    }
+
     public String getMessage() {
         return this.message.toString();
     }
@@ -48,7 +60,7 @@ public class Speaker implements Serializable {
     }
     
     public void success() {
-        message = new StringBuilder(ANSI_GREEN + message + ANSI_RESET);
+
     }
     
     public Speaker(String ... args){

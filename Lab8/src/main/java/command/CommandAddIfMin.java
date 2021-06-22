@@ -27,7 +27,13 @@ public class CommandAddIfMin extends Command{
      */
     
     private Worker worker;
-    
+
+    public CommandAddIfMin(Worker worker, Integer id) {
+        this.worker = worker;
+        this.worker.setId(id);
+        this.ready = true;
+    }
+
     public CommandAddIfMin(String ... args){
         try {
             this.worker = ReadWorker.read(System.in);
@@ -44,13 +50,12 @@ public class CommandAddIfMin extends Command{
             Integer first;
             if (collection.isEmpty()) {
                 first = -2147483648;
-            }
-            else {
-                first = collection.first().getId();
+            } else {
+                first = collection.first(username).getId();
             }
             if (worker.getId() < first) {
                 worker.setOwner(username);
-                collection.add(worker);
+                collection.add(worker, true);
                 speaker = new Speaker("Мы добавили элемент в коллекцию!");
                 speaker.success();
                 return speaker;

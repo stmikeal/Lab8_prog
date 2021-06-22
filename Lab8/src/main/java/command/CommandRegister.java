@@ -1,5 +1,7 @@
 package command;
 
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import server.DataManager;
 import tools.ClientLogger;
 import tools.Encoder;
@@ -11,6 +13,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 
 public class CommandRegister extends Command{
+
+    public CommandRegister(TextField username, PasswordField password) {
+        this.username = username.getText();
+        this.password = Encoder.encrypt(password.getText());
+        ready = true;
+    }
 
     public CommandRegister(String ... args) {
         Scanner scanner = new Scanner(System.in);

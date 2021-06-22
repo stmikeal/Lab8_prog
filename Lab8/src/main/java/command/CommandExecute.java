@@ -33,7 +33,11 @@ public class CommandExecute extends Command{
     
     private String path = "";
     private String next;
-    
+
+    public CommandExecute(Integer i, String path) {
+        next = path;
+        this.ready = true;
+    }
     public CommandExecute(String ... args){
         try {
             next = args[1];

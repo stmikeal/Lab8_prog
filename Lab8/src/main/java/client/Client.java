@@ -1,12 +1,21 @@
 package client;
+import controllers.AddSceneController;
+import controllers.LoginSceneController;
+import controllers.WorkSceneController;
+import element.Worker;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import tools.*;
 import command.Command;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -18,126 +27,97 @@ import java.util.logging.Level;
  */
 public class Client extends Application{
     
-    private Socket clientSocket;
-    private ObjectInputStream inStream;
-    private ObjectOutputStream outStream;
-    private int PORT;
+    private static Socket clientSocket;
+    private static ObjectInputStream inStream;
+    private static ObjectOutputStream outStream;
+    private static int PORT = 4242;
     private Speaker speaker;
     private final int REP = 100;
     private InetAddress address;
-    private String username = null;
-    private String password = null;
+    private static String username = null;
+    private static String password = null;
     
     static {
         System.setProperty("logback.xml", "../logback.xml");
     }
-    
+
+    public void newScene(Stage primaryStage) throws IOException{
+        primaryStage.hide();
+        FXMLLoader loader = new FXMLLoader();
+        URL xmlUrl = getClass().getResource("workScene.fxml");
+        loader.setLocation(xmlUrl);
+        Parent root = loader.load();
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("You guessed right");
+        loader.setController(new WorkSceneController());
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        URL xmlUrl = getClass().getResource("loginScene.fxml");
+        loader.setLocation(xmlUrl);
+        Parent root = loader.load();
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("Try to guess!");
+        try {
+            InputStream iconStream = getClass().getResourceAsStream("logo.png");
+            if (iconStream == null)
+                throw new NullPointerException();
+            Image image = new Image(iconStream);
+            primaryStage.getIcons().add(image);
+        } catch(NullPointerException e) {
+            ClientLogger.logger.log(Level.WARNING, "Не найдена иконка.");
+        }
+        LoginSceneController.setStage(primaryStage);
+        loader.setController(new LoginSceneController());
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(
                 new Thread(
                         () -> {
                             ClientLogger.logger.log(Level.INFO, "Выключение клиента");
                             System.out.println();
-                            Client.printCat();
                         }
                 )
         );
         ClientLogger.logger.log(Level.INFO, "Клиент запущен");
-        Client client = new Client();
-    }
-    
-    public Client() {
-
-        System.out.println("Введите порт для подключения:");
         try {
-            PORT = 4242;
-            PORT = Integer.parseInt(new Scanner(System.in).nextLine());
-            if (PORT<=1024||PORT>=65536){
-                throw new NumberFormatException();
-            }
-        } catch(NumberFormatException e) {
-            ClientLogger.logger.log(Level.WARNING, "Введен неправильный формат порта", e);
-            PORT = 4242;
-            System.out.println("Введен неправильный формат порта, устанавливаем стандартное значение " + PORT);
-        } catch(NoSuchElementException e) {
-            ClientLogger.logger.log(Level.WARNING,"Введен некорректный символ при чтении порта", e);
-            PORT = 4242;
-            System.out.println("Зачем вы ломаете программу?! Ни мучий, апути.");
-            System.out.println("Устанавливаем значение по умолчанию - 4242.");
-        }
-        ClientLogger.logger.log(Level.INFO, "Клиент работает на порту: " + PORT);
-        try {
-            this.connect();
+            connect();
         } catch(IOException e) {
+            ClientLogger.logger.log(Level.WARNING, "Не можем подключиться к серверу");
+            System.exit(1);
         }
-        try {
-            address = clientSocket.getInetAddress();
-        } catch (NullPointerException e) {
-            System.out.println("Введен неверный порт");
-            System.exit(122);
-        }
-
-        System.out.println("Добрый день, мы рады вас приветствовать в этой программе,"
-                + "\nДля авторизации или регистрации введите login/register.");
-        
-        listen();
-
+        Application.launch();
     }
-    
-    public final void listen() {
-        
-        String inputString;
-        Command command;
-        CommandParser cp = new CommandParser();
-        Scanner scanner = new Scanner(System.in);
-        
-        while(scanner.hasNext()) {
-            
-            inputString = scanner.nextLine();
-            command = cp.choice(inputString);
 
-            if (command != null&&command.getUsername()==null) {
-                command.setUsername(this.username);
-            }
-
-            if (!inputString.equals("")) {
-                ClientLogger.logger.log(Level.INFO, "Введена строка " + inputString);
-            }
-
-            if ((command != null)&&(command.isReady())) {
-                try {
-
-                    speaker = this.execute(command);
-
-                    if (speaker.getMessage().equals("exit\n")) {
-                        ClientLogger.logger.log(Level.INFO, "Введено exit, выходим");
-                        System.out.println("Работа завершена. До свидания!");
-                        System.exit(0);
-                    }
-                    
-                    if (speaker.getMessage().equals("unconnected\n")) {
-                        ClientLogger.logger.log(Level.WARNING, "Ошибка подключения к серверу");
-                        System.out.println("Сервер не доступен, извините:( Выходим из программы...");
-                        System.exit(0);
-                    }
-
-                    if (speaker.getMessage().equals("Успешный вход.\n")
-                            ||speaker.getMessage().equals("Успешная регистрация.\n")) {
-                        username = speaker.getPrivateMessage1();
-                        password = speaker.getPrivateMessage2();
-                    }
-                    
-                    speaker.println();
-                } catch(ClassNotFoundException e){
-                    ClientLogger.logger.log(Level.INFO, "Ответ от сервера в неккоректном формате", e);
-                    System.out.println("Ответ пришел в некорректном формате!");
-                }
-            }
-        }
-        
+    public Client(){
     }
-    
+
+    public void addWindow(String type, Integer id) throws IOException{
+        Stage stage = new Stage();
+        AddSceneController.setStage(stage);
+        AddSceneController.setType(type);
+        AddSceneController.setId(id);
+        FXMLLoader loader = new FXMLLoader();
+        URL xmlUrl = getClass().getResource("addScene.fxml");
+        loader.setLocation(xmlUrl);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Add worker");
+        loader.setController(new AddSceneController(type, id));
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public Speaker execute(Command command) throws ClassNotFoundException{
+        if (command.getUsername()==null) command.setUsername(getUsername());
         Speaker tempSpeaker = null;
         try {
             outStream.writeObject(command);
@@ -145,18 +125,32 @@ public class Client extends Application{
             tempSpeaker = (Speaker) inStream.readObject();
         } catch(IOException e) {
             ClientLogger.logger.log(Level.INFO, "Неудачная попытка подключения");
+        } catch(NullPointerException e) {
+            ClientLogger.logger.log(Level.WARNING, "Сервер не запущен, выходим.");
+            System.out.println("Сервер ещё не запущен, выходим...");
+            System.exit(1);
         }
         return tempSpeaker;
     }
     
-    public void connect() throws IOException{
+    public static void connect() throws IOException{
         clientSocket = new Socket("127.0.0.1", PORT);
         outStream = new ObjectOutputStream(clientSocket.getOutputStream());
         outStream.flush();
         inStream = new ObjectInputStream(clientSocket.getInputStream());
     }
 
-    
+    public static void setUsername(String newUsername) {
+        username = newUsername;
+    }
+    public static void setPassword(String newPassword) {
+        password = newPassword;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
     public static void printCat() {
         System.out.println("########################%+::*****++*+=++****+*+*::+++*+::--./&!!&&/\\-.-@#%%%%%%%%%%%%%%%%%%@@@@@@@@@\n" +
 "#######################%\\|||||&!!&|/-*****++*+**-::::*+:::-.\\||!&///\\\\\\=###%%=%%%%%%%%%%%%%%@@@@@@@@\n" +

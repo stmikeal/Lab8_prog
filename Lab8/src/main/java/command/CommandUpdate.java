@@ -25,7 +25,14 @@ public class CommandUpdate extends Command{
     
     private int id;
     private Worker worker;
-    
+
+    public CommandUpdate(Worker worker, Integer id) {
+        this.worker = worker;
+        this.worker.setId(id);
+        this.id = id;
+        this.ready = true;
+    }
+
     public CommandUpdate(String ... args) {
         ready = true;
         try {
@@ -40,18 +47,14 @@ public class CommandUpdate extends Command{
     
     @Override
     public Speaker event(DataManager collection) {
-        worker.setId(id);
         try {
-            Worker compared = collection.floor(new Worker(id));
-            if (id == compared.getId()) {
+            if (collection.findId(id)) {
                 worker.setOwner(username);
-                collection.add(worker);
-                collection.remove(compared);
+                collection.remove(id, username);
+                collection.add(worker, true);
                 speaker = new Speaker("Удачно заменили элемент.");
-                speaker.success();
             } else {
                 speaker = new Speaker("Не смогли найти такой элемент.");
-                speaker.error();
             }
             return speaker;
         } catch (SQLException e) {

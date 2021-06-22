@@ -98,9 +98,9 @@ public class SocketAdapter implements Runnable{
             } catch (InterruptedException e) {
                 System.out.println("Поток выполнения команды был прерван.");
             } catch (ExecutionException e) {
+                e.printStackTrace();
                 System.out.println("Ошибка выполнения команды.");
             }
-
             Speaker finalSpk = spk;
             writePool.submit(() -> {
                 try {

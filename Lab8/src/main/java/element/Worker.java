@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  * Класс работника, составлен из варианта лабораторной работы.
  * @author mike
  */
-public class Worker implements Serializable {
+public class Worker implements Serializable, Comparable {
     private Integer id;
     private String name;
     private Coordinates coordinates;
@@ -19,6 +19,12 @@ public class Worker implements Serializable {
     private Status status;
     private Person person;
     private String owner = null;
+    private double coordX;
+    private double coordY;
+    private Color hair;
+    private Color eye;
+    private Integer height;
+    private Country country;
     
     public Worker(String name, Coordinates coordinates, Double salary, 
             java.time.LocalDate startDate, Position position, Status status,
@@ -90,8 +96,48 @@ public class Worker implements Serializable {
         return status;
     }
 
+    public double getCoordX() {
+        return coordinates.getX();
+    }
+
+    public double getCoordY() {
+        return coordinates.getY();
+    }
+
     public String getOwner() {
         return owner;
+    }
+
+    public Color getEye() {
+        try {
+            return person.getEyeColor();
+        } catch(NullPointerException e) {
+            return null;
+        }
+    }
+
+    public Color getHair() {
+        try {
+            return person.getHairColor();
+        } catch(NullPointerException e) {
+            return null;
+        }
+    }
+
+    public Country getCountry() {
+        try {
+            return person.getNationality();
+        } catch(NullPointerException e) {
+            return null;
+        }
+    }
+
+    public Integer getHeight() {
+        try {
+            return person.getHeight();
+        } catch(NullPointerException e) {
+            return 0;
+        }
     }
 
     public static int statusToInt(String status) {
@@ -149,5 +195,12 @@ public class Worker implements Serializable {
         if (person==null) result += "n\n";
         else result += "y\n"+person.toStringSave();
         return result;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (this.id>((Worker)o).getId()) return 1;
+        else if (this.id>((Worker)o).getId()) return -1;
+        else return 0;
     }
 }

@@ -28,13 +28,12 @@ public class CommandRemoveLower extends Command{
     @Override
     public Speaker event(DataManager collection) {
         try {
-            collection.remove(collection.first());
+            Worker worker = collection.first(username);
+            collection.remove(worker.getId(), username);
             speaker = new Speaker("Наименьший элемент удачно удалён.");
-            speaker.success();
             return speaker;
         } catch (SQLException e) {
             speaker = new Speaker("База данных сейчас недоступна.");
-            speaker.error();
             return speaker;
         } catch(Exception e) {
             speaker = new Speaker("Коллекция пуста.");

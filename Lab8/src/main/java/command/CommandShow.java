@@ -24,9 +24,11 @@ public class CommandShow extends Command {
     @Override
     public Speaker event(DataManager collection) {
         try {
-            collection.stream().forEach(worker -> result += worker.toString() + "\n---\n");
             result = result.trim();
-            return new Speaker(result);
+            Speaker speaker = new Speaker(result);
+            TreeSet<Worker> col = collection.getCollection();
+            speaker.setCollection(col);
+            return speaker;
         } catch (SQLException e) {
             speaker = new Speaker("База данных сейчас недоступна.");
             speaker.error();

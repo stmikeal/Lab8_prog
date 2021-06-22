@@ -3,6 +3,7 @@ package server;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -54,10 +55,14 @@ public class Server {
 
 
         try {
-            Scanner scanner = new Scanner(FileReader.getStream("../userdata"));
+            InputStream userdata = Server.class.getResourceAsStream("userdata");
+            if (userdata == null) {
+                throw new NullPointerException();
+            }
+            Scanner scanner = new Scanner(userdata);
             username = scanner.nextLine().trim();
             password = scanner.nextLine().trim();
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException e) {
             System.out.println("Файл с данными для входа не найден.");
             ServerLogger.logger.log(Level.WARNING, "Не найден userdata.");
             System.exit(122);

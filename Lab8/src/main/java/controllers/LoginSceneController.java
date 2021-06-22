@@ -7,10 +7,7 @@ import command.CommandRegister;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tools.ClientLogger;
 import tools.Encoder;
@@ -22,6 +19,14 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 
 public class LoginSceneController implements Initializable {
+    @FXML
+    private Label LABELLOGIN;
+    @FXML
+    private Label LABELPASSWORD;
+    @FXML
+    private Button BUTTONLOGIN;
+    @FXML
+    private Button BUTTONREGISTER;
     @FXML
     private ChoiceBox<String> LIST;
     @FXML
@@ -77,6 +82,36 @@ public class LoginSceneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LIST.setItems(FXCollections.observableArrayList("Русский", "Slovak", "Shqiptare", "English(Canada)"));
-        LIST.setValue("English(Canada)");
+        LIST.setValue("Русский");
+        LIST.setOnAction(event -> changeLanguage());
+        useLanguage();
+    }
+
+    private void changeLanguage() {
+        ResourceBundle bundle;
+        String lang = LIST.getValue();
+        switch (lang) {
+            case "Русский":
+                Client.setBundle(ResourceBundle.getBundle("bundles.Resources"));
+                break;
+            case "Slovak":
+                Client.setBundle(ResourceBundle.getBundle("bundles.Resources_sk"));
+                break;
+            case "Shqiptare":
+                Client.setBundle(ResourceBundle.getBundle("bundles.Resources_sq"));
+                break;
+            case "English(Canada)":
+                Client.setBundle(ResourceBundle.getBundle("bundles.Resources_en_CA"));
+                break;
+        }
+        useLanguage();
+    }
+
+    private void useLanguage() {
+        ResourceBundle bundle = Client.getBundle();
+        LABELLOGIN.setText(bundle.getString("login"));
+        LABELPASSWORD.setText(bundle.getString("password"));
+        BUTTONLOGIN.setText(bundle.getString("enter"));
+        BUTTONREGISTER.setText(bundle.getString("registration"));
     }
 }

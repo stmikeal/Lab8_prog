@@ -1,0 +1,302 @@
+июн 22, 2021 4:31:47 AM server.Server main
+WARNING: Введено некорректное значение порта
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at server.Server.main(Server.java:83)
+
+июн 22, 2021 4:31:53 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:32:48 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 4:46:15 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:46:28 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 4:47:38 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:47:57 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 4:48:24 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:48:44 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 4:48:46 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:49:36 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 4:56:45 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 4:56:51 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:13:14 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:13:48 AM server.Server main
+WARNING: Введено некорректное значение порта
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at server.Server.main(Server.java:83)
+
+июн 22, 2021 5:13:53 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:14:07 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:21:16 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:21:17 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:23:29 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:23:38 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:23:50 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:24:03 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:34:12 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:34:57 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+июн 22, 2021 5:45:26 AM server.Server main
+WARNING: Введено некорректное значение порта
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at server.Server.main(Server.java:83)
+
+июн 22, 2021 5:45:32 AM server.Server main
+INFO: Запущен адаптер для /127.0.0.1
+июн 22, 2021 5:45:48 AM server.SocketAdapter lambda$run$1
+WARNING: Поток был прерван
+java.net.SocketException: Connection reset by peer: socket write error
+	at java.net.SocketOutputStream.socketWrite0(Native Method)
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+	at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+	at java.io.ObjectOutputStream.writeNonProxyDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeClassDesc(Unknown Source)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+	at java.io.ObjectOutputStream.writeFatalException(Unknown Source)
+	at java.io.ObjectOutputStream.writeObject(Unknown Source)
+	at server.SocketAdapter.lambda$run$1(SocketAdapter.java:107)
+	at java.util.concurrent.ForkJoinTask$AdaptedRunnableAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+

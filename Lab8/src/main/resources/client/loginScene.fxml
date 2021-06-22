@@ -22,9 +22,9 @@
             </HBox>
             <VBox>
                <children>
-                  <Label text="Login" />
+                  <Label fx:id="LABELLOGIN" text="Login" />
                   <TextField id="LOGIN" fx:id="LOGIN" />
-                  <Label text="Password" />
+                  <Label fx:id="LABELPASSWORD" text="Password" />
                   <PasswordField id="PASSWORD" fx:id="PASSWORD" />
                </children>
                <opaqueInsets>
@@ -36,12 +36,12 @@
             </VBox>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#commandRegister" prefHeight="50.0" prefWidth="150.0" text="Register">
+                  <Button fx:id="BUTTONREGISTER" mnemonicParsing="false" onAction="#commandRegister" prefHeight="50.0" prefWidth="150.0" text="Register">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#commandLogin" prefHeight="50.0" prefWidth="150.0" text="Login">
+                  <Button fx:id="BUTTONLOGIN" mnemonicParsing="false" onAction="#commandLogin" prefHeight="50.0" prefWidth="150.0" text="Login">
                      <font>
                         <Font size="16.0" />
                      </font>

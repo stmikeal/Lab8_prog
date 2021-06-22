@@ -17,6 +17,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.util.NoSuchElementException;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 
@@ -36,13 +37,23 @@ public class Client extends Application{
     private InetAddress address;
     private static String username = null;
     private static String password = null;
-    
+    private static ResourceBundle bundle = ResourceBundle.getBundle("bundles.Resources");
+
+    public static ResourceBundle getBundle() {
+        return bundle;
+    }
+
+    public static void setBundle(ResourceBundle bundle) {
+        Client.bundle = bundle;
+    }
+
     static {
         System.setProperty("logback.xml", "../logback.xml");
     }
 
     public void newScene(Stage primaryStage) throws IOException{
         primaryStage.hide();
+        WorkSceneController.setStage(primaryStage);
         FXMLLoader loader = new FXMLLoader();
         URL xmlUrl = getClass().getResource("workScene.fxml");
         loader.setLocation(xmlUrl);
@@ -108,6 +119,15 @@ public class Client extends Application{
         loader.setLocation(xmlUrl);
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        try {
+            InputStream iconStream = getClass().getResourceAsStream("logo.png");
+            if (iconStream == null)
+                throw new NullPointerException();
+            Image image = new Image(iconStream);
+            stage.getIcons().add(image);
+        } catch(NullPointerException e) {
+            ClientLogger.logger.log(Level.WARNING, "Не найдена иконка.");
+        }
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Add worker");

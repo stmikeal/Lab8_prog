@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tools.ClientLogger;
 import tools.Speaker;
 
@@ -21,6 +22,32 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 
 public class WorkSceneController implements Initializable {
+    @FXML
+    private Button BUTTONREMOVELOWER;
+    @FXML
+    private Button BUTTONCLEAR;
+    @FXML
+    private Button BUTTONADD;
+    @FXML
+    private Button BUTTONSHOW;
+    @FXML
+    private Button BUTTONINFO;
+    @FXML
+    private Button BUTTONHELP;
+    @FXML
+    private Button BUTTONREMOVE;
+    @FXML
+    private Button BUTTONUPDATE;
+    @FXML
+    private Button BUTTONADDIFLESS;
+    @FXML
+    private Button BUTTONEXECUTE;
+    @FXML
+    private Button BUTTONEXIT;
+    @FXML
+    private Tab TABTABLE;
+    @FXML
+    private Tab TABVISUAL;
     @FXML
     private ChoiceBox<String> LIST;
     @FXML
@@ -60,6 +87,11 @@ public class WorkSceneController implements Initializable {
     @FXML
     private TextField EXECUTE;
     private Client client;
+    private static Stage stage;
+
+    public static void setStage(Stage stage) {
+        WorkSceneController.stage = stage;
+    }
 
     public WorkSceneController() {
         client = new Client();
@@ -81,10 +113,26 @@ public class WorkSceneController implements Initializable {
         HAIR.setCellValueFactory(new PropertyValueFactory<>("hair"));
         COUNTRY.setCellValueFactory(new PropertyValueFactory<>("country"));
         LIST.setItems(FXCollections.observableArrayList("Русский", "Slovak", "Shqiptare", "English(Canada)"));
-        LIST.setValue("English(Canada)");
+        String bund = Client.getBundle().getBaseBundleName();
+        switch (bund) {
+            case "bundles.Resources":
+                LIST.setValue("Русский");
+                break;
+            case "bundles.Resources_en_CA":
+                LIST.setValue("English(Canada)");
+                break;
+            case "bundles.Resources_sk":
+                LIST.setValue("Slovak");
+                break;
+            case "bundles.Resources_sq":
+                LIST.setValue("Shqiptare");
+                break;
+        }
         Thread thread = new Thread(new Shower());
         thread.setDaemon(true);
         thread.start();
+        LIST.setOnAction(event -> changeLanguage());
+        useLanguage();
     }
 
     @FXML
@@ -190,7 +238,6 @@ public class WorkSceneController implements Initializable {
         try {
             client.addWindow(type, id);
         } catch (IOException e) {
-            e.printStackTrace();
             ClientLogger.logger.log(Level.WARNING, "Не удалось открыть окно!");
             callAlert("Add worker", "Error during opening window", "check data or write me");
         }
@@ -242,5 +289,42 @@ public class WorkSceneController implements Initializable {
             }
         }
 
+    }
+
+    private void changeLanguage() {
+        ResourceBundle bundle;
+        String lang = LIST.getValue();
+        if (lang.equals("Русский")) Client.setBundle(ResourceBundle.getBundle("bundles.Resources"));
+        else if (lang.equals("Slovak")) Client.setBundle(ResourceBundle.getBundle("bundles.Resources_sk"));
+        else if (lang.equals("Shqiptare")) Client.setBundle(ResourceBundle.getBundle("bundles.Resources_sq"));
+        else if (lang.equals("English(Canada)")) Client.setBundle(ResourceBundle.getBundle("bundles.Resources_en_CA"));
+        useLanguage();
+    }
+
+    private void useLanguage() {
+        ResourceBundle bundle = Client.getBundle();
+        BUTTONREMOVELOWER.setText(bundle.getString("removeLower"));
+        BUTTONCLEAR.setText(bundle.getString("clear"));
+        BUTTONADD.setText(bundle.getString("add"));
+        BUTTONSHOW.setText(bundle.getString("show"));
+        BUTTONINFO.setText(bundle.getString("info"));
+        BUTTONHELP.setText(bundle.getString("help"));
+        BUTTONREMOVE.setText(bundle.getString("remove_by_id"));
+        BUTTONUPDATE.setText(bundle.getString("update"));
+        BUTTONADDIFLESS.setText(bundle.getString("addifless"));
+        BUTTONEXECUTE.setText(bundle.getString("execute_script"));
+        BUTTONEXIT.setText(bundle.getString("exit"));
+        TABTABLE.setText(bundle.getString("table"));
+        TABVISUAL.setText(bundle.getString("visual"));
+        NAME.setText(bundle.getString("name"));
+        SALARY.setText(bundle.getString("salary"));
+        STARTAT.setText(bundle.getString("startAt"));
+        CREATIONDATE.setText(bundle.getString("creation"));
+        POSITION.setText(bundle.getString("position"));
+        STATUS.setText(bundle.getString("status"));
+        HAIR.setText(bundle.getString("hair"));
+        EYE.setText(bundle.getString("eye"));
+        COUNTRY.setText(bundle.getString("country"));
+        HEIGHT.setText(bundle.getString("height"));
     }
 }

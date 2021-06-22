@@ -21,33 +21,33 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#commandRemoveLower" prefHeight="10.0" prefWidth="200.0" text="Remove lower">
+                  <Button fx:id="BUTTONREMOVELOWER" mnemonicParsing="false" onAction="#commandRemoveLower" prefHeight="10.0" prefWidth="200.0" text="Remove lower">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#commandClear" prefHeight="10.0" prefWidth="200.0" text="Clear">
+                  <Button fx:id="BUTTONCLEAR" mnemonicParsing="false" onAction="#commandClear" prefHeight="10.0" prefWidth="200.0" text="Clear">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#commandAdd" prefHeight="10.0" prefWidth="200.0" text="Add">
+                  <Button fx:id="BUTTONADD" mnemonicParsing="false" onAction="#commandAdd" prefHeight="10.0" prefWidth="200.0" text="Add">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#commandShow" prefHeight="10.0" prefWidth="200.0" text="Show">
+                  <Button fx:id="BUTTONSHOW" mnemonicParsing="false" onAction="#commandShow" prefHeight="10.0" prefWidth="200.0" text="Show">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#commandInfo" prefHeight="10.0" prefWidth="200.0" text="Info">
+                  <Button fx:id="BUTTONINFO" mnemonicParsing="false" onAction="#commandInfo" prefHeight="10.0" prefWidth="200.0" text="Info">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#commandHelp" prefHeight="10.0" prefWidth="200.0" text="Help">
+                  <Button fx:id="BUTTONHELP" mnemonicParsing="false" onAction="#commandHelp" prefHeight="10.0" prefWidth="200.0" text="Help">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
                   <HBox prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#commandRemove" prefHeight="10.0" prefWidth="200.0" text="Remove">
+                        <Button fx:id="BUTTONREMOVE" mnemonicParsing="false" onAction="#commandRemove" prefHeight="10.0" prefWidth="200.0" text="Remove">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -61,7 +61,7 @@
                   </HBox>
                   <HBox prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#commandUpdate" prefHeight="10.0" prefWidth="200.0" text="Update">
+                        <Button fx:id="BUTTONUPDATE" mnemonicParsing="false" onAction="#commandUpdate" prefHeight="10.0" prefWidth="200.0" text="Update">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -75,7 +75,7 @@
                   </HBox>
                   <HBox prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#commandAddIfMin" prefHeight="0.0" prefWidth="200.0" text="Add if less">
+                        <Button fx:id="BUTTONADDIFLESS" mnemonicParsing="false" onAction="#commandAddIfMin" prefHeight="0.0" prefWidth="200.0" text="Add if less">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -89,7 +89,7 @@
                   </HBox>
                   <VBox prefWidth="100.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#commandExecute" prefHeight="10.0" prefWidth="200.0" text="Execute">
+                        <Button fx:id="BUTTONEXECUTE" mnemonicParsing="false" onAction="#commandExecute" prefHeight="10.0" prefWidth="200.0" text="Execute">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -101,7 +101,7 @@
                         </TextField>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" onAction="#commandExit" prefHeight="10.0" prefWidth="200.0" text="Exit">
+                  <Button fx:id="BUTTONEXIT" mnemonicParsing="false" onAction="#commandExit" prefHeight="10.0" prefWidth="200.0" text="Exit">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
@@ -117,7 +117,7 @@
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="Table">
+                <Tab fx:id="TABTABLE" text="Table">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -142,7 +142,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Visualization">
+                  <Tab fx:id="TABVISUAL" text="Visualization">
                      <content>
                         <AnchorPane>
                            <children>
